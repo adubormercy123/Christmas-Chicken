@@ -1,0 +1,112 @@
+public class NigeriaFlagNestedLoop {
+    public static void main(String[] args) {
+        // Outer loop for rows
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 17; j++) {
+                if (i < 3) {
+                    if (j < 7) {
+                        System.out.print("*");
+                    } else {
+                        System.out.print("=");
+                    }
+                } else {
+                    System.out.print("=");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+‎
+public class NigeriaFlagSingleLoop {
+    public static void main(String[] args) {
+        String part1 = "* * * * = = = = = = =";
+        String part2 = "= = = = = = = = = = =";
+        for (int i = 0; i < 3; i++) {
+            System.out.println(part1);
+        }
+        for (int i = 0; i < 3; i++) {
+            System.out.println(part2);
+        }
+    }
+}
+‎ArrayInput.java
++20
+
+import java.util.Scanner;
+public class ArrayInput {
+    public static void main(String[] args) {
+        int[] numbers = new int[10];
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print("Enter a value for index " + i + ": ");
+            numbers[i] = scanner.nextInt();
+        }
+        System.out.println("The values you entered are:");
+        for (int number : numbers) {
+            System.out.println(number);
+        }
+        scanner.close();
+    }
+}
+‎FlagOfNigeriaNestedLoop.java
+
+public class FlagOfNigeriaNestedLoop {
+    public static void main(String[] args) {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 12; j++) {
+                if (j < 4 || j > 7) {
+                    System.out.print("*");
+                } else if (j >= 3 && j <= 7) {
+                    System.out.print("=");
+                }
+            }
+            System.out.println();
+        }
+    }
+}
+‎FlagOfNigeriaSingleLoop.java
+public class FlagOfNigeriaSingleLoop {
+    public static void main(String[] args) {
+        String line = "* * * * = = = = * * * *";
+        for (int i = 0; i < 4; i++) {
+            System.out.println(line);
+        }
+    }
+}
+‎Statistics.java
+import java.util.Arrays;
+public class Statistics {
+    public static void main(String[] args) {
+        int[] data = {2, 5, 5, 9, 4, 7, 0, 9, 6, 11, 12};
+        int n = data.length;
+        double mean = calculateMean(data, n);
+        System.out.println("Mean: " + mean);
+        double median = calculateMedian(data, n);
+        System.out.println("Median: " + median);
+        double stdDev = calculateStandardDeviation(data, mean, n);
+        System.out.println("Standard Deviation: " + stdDev);
+    }
+    public static double calculateMean(int[] data, int n) {
+        double sum = 0;
+        for (int num : data) {
+            sum += num;
+        }
+        return sum / n;
+    }
+    public static double calculateMedian(int[] data, int n) {
+        Arrays.sort(data); // Sort the array
+        if (n % 2 == 0) {
+            return (data[n / 2 - 1] + data[n / 2]) / 2.0;
+        } else {
+            return data[n / 2];
+        }
+    }
+    public static double calculateStandardDeviation(int[] data, double mean, int n) {
+        double sumSquaredDiff = 0;
+        for (int num : data) {
+            sumSquaredDiff += Math.pow(num - mean, 2);
+        }
+        return Math.sqrt(sumSquaredDiff / n);
+    }
+}
